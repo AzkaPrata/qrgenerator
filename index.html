@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qr Code Generator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        #qrPreview canvas{
+            max-width: 300px !important;
+            max-height: 300px !important;
+            overflow-clip-margin: content-box;
+            overflow: clip;
+        }
+    </style>
+</head>
+<body class="bg-slate-100 min-h-screen">
+    <div class="max-w-6xl mx-auto p-4">
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="rounded-xl flex p-5 justify-center items-center">
+                <div id="qrPreview" class="bg-white shadow p-4" >
+                    
+                </div>
+            </div>
+            <div class="bg-white rounded-xl shadow p-5">
+                <label for="qrText" class="text-sm font-medium">Teks/URL</label>
+                <input id="qrText" placeholder="Masukan Text Atau URL" type="text" class="w-full mt-1 mb-3 px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <label for="qrColor" class="text-sm font-medium">Warna QR</label>
+                <input type="color" id="qrColor" class="w-full h-10 mb-3 rounded" value="#000000">
+                <label for="bgColor" class="text-sm font-medium">Warna Latar</label>
+                <input type="color" id="bgColor" class="w-full h-10 mb-3 rounded" value="#ffffff">
+                <label for="dotStyle" class="text-sm font-medium">Bentuk QR</label>
+                <select name="style" id="dotStyle" class="w-full mt-1 mb-3 px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500">
+                    <option value="rounded">Rounded</option>
+                    <option value="dots">Dots</option>
+                    <option value="square">Square</option>
+                </select>
+                <label for="qrLogo" class="text-sm font-medium">Logo</label>
+                <input type="file" id="qrLogo" accept="image/*" class="w-full mt-1 mb-3 px-3 py-2 border rounded">
+                <label for="qrQuality" class="text-sm font-medium">Kualitas</label>
+                <select name="quality" id="qrQuality" class="w-full mt-1 mb-3 px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500">
+                    <option value="512">512px</option>
+                    <option value="1024">1024px</option>
+                    <option value="2048">2048px</option>
+                </select>
+                <label for="qrMargin" class="text-sm font-medium">Margin</label>
+                <input id="qrMargin" type="number" placeholder="8" class="w-full mt-1 mb-3 px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500">
+                <label class="w-full border rounded-lg mt-5 mb-3 px-3 py-2">
+                    <input type="checkbox" name="t" id="transparentBg">
+                    Background Transparan
+                </label>
+                <label for="format" class="ml-5 text-sm font-medium">Format File</label>
+                <select name="format" id="format" class="ml-1 mt-1 mb-3 px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500">
+                    <option value="png">PNG</option>
+                    <option value="svg">SVG</option>
+                    <option value="jpg">JPG</option>
+                </select>
+                <!-- <div class="w-full items-center justify-between">
+                    <button id="savePreset" class="w-1/4 p-3 border shadow">Simpan</button>
+                    <button id="loadPreset" class="w-1/4 p-3 border shadow">Load</button>
+                    <button id="resetQR" class="w-1/4 p-3 border shadow">Reset</button>
+                </div> -->
+                <button id="download" class="border shadow p-5 mt-5 w-full item-center">
+                    Download
+                </button>
+            </div>
+        </div>
+        <footer class="text-cente text-sm text-gray-500 mt-8">Created By AzkaPrata @2026\</footer>
+    </div>
+    <script src="qrcode.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>
