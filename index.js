@@ -11,6 +11,7 @@ const format = document.getElementById("format")
 const sP = document.getElementById("savePreset")
 const lP = document.getElementById("loadPreset")
 const rQ = document.getElementById("resetQR")
+const styleq = document.getElementById("dotStyle")
 
 const qrCode = new QRCodeStyling({
     width:512,
@@ -104,4 +105,16 @@ qrMargin.addEventListener("input", ()=>{
         }
     })
 })
+
+styleq.addEventListener("change", ()=>{
+    console.log(styleq.value)
+    qrCode.update({
+        dotsOptions:{
+            type:styleq.value
+        }
+        
+    })
+})
+
+
 
